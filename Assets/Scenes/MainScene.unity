@@ -701,6 +701,7 @@ MonoBehaviour:
   displayImageDuration: 1
   player: {fileID: 796216318282246426}
   exitBackgroundImageCanvasGroup: {fileID: 1586214674}
+  caughtBackgroundImageCanvasGroup: {fileID: 0}
 --- !u!65 &1949479734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4164,3 +4165,82 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 796216318282246425}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8024645542310906032
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502600349, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027021204502628029, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: m_Name
+      value: Gargoyle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557944841779470300, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2124460711}
+    - target: {fileID: 5557944841779470300, guid: 513c86c4800865c44b040abcecb2b30e,
+        type: 3}
+      propertyPath: gameEnding
+      value: 
+      objectReference: {fileID: 1949479733}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 513c86c4800865c44b040abcecb2b30e, type: 3}
