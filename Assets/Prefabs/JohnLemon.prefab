@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 2093272199396769478}
   - component: {fileID: 6974605888522546300}
   - component: {fileID: 1418933729822483975}
+  - component: {fileID: 8956355076420893260}
   m_Layer: 0
   m_Name: JohnLemon
   m_TagString: Untagged
@@ -360,7 +361,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c930d6282b6d3bd4492c47ab6fa26631, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -396,6 +397,22 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &8956355076420893260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093272199404178702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5e35cdf7f3825469bb6768d05ce859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 20
+  movement: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
+  walking: 0
 --- !u!1 &2093272199404178704
 GameObject:
   m_ObjectHideFlags: 0
