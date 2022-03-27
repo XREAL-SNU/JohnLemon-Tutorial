@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
+  nearObject: []
 --- !u!82 &1632129327402772608
 AudioSource:
   m_ObjectHideFlags: 0

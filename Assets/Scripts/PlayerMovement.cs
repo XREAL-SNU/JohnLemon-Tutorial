@@ -15,12 +15,14 @@ public class PlayerMovement : MonoBehaviour
 
     public float turnSpeed = 20f;
 
-
+    Shader shader;
+    string ShaderColorParamName = "_Color";
     void Start()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_AudioSource = GetComponent<AudioSource>();
+        shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
     }
 
     // Update is called once per frame
@@ -58,5 +60,22 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
+    GameObject nearObject;
+    private void OnCollisionEnter(Collision collision)
+    {
 
+        nearObject = collision.gameObject;
+        nearObject.GetComponent<MeshRenderer>().material.shader = shader; // shader = Shader.Find("Legacy Shaders/Transparent/Diffuse");
+        nearObject.GetComponent<MeshRenderer>().material.SetColor(ShaderColorParamName, new Color(1f, 1f, 1f, 0.2f));
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+
+        //nearObject[i] = collision.gameObject;
+        //nearObject[i].GetComponent<MeshRenderer>().material.shader = shader;
+        nearObject.GetComponent<MeshRenderer>().material.SetColor(ShaderColorParamName, new Color(1f, 1f, 1f, 1f));
+
+
+    }
 }
