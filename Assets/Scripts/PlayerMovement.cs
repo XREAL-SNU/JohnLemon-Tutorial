@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    AudioSource m_AudioSource;
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,17 @@ public class PlayerMovement : MonoBehaviour
         bool isWalking = hasHorizontalInput || hasVerticalInput;
 
         m_Animator.SetBool("IsWalking", isWalking);
+        if (isWalking)
+        {
+            if (!m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play();
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop();
+        }
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f); //캐릭터가 바라보고 있는 방향에서, m_Movement만큼 이동한 곳을 바라본 값
         m_Rotation = Quaternion.LookRotation(desiredForward);
     }
