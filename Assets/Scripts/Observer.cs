@@ -19,9 +19,9 @@ public class Observer : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.transform == player)
+        if (other.transform == player)
         {
-            m_IsPlayerInRange=false;
+            m_IsPlayerInRange = false;
         }
     }
 
@@ -33,9 +33,9 @@ public class Observer : MonoBehaviour
             Ray ray = new Ray(transform.position, direction);
             RaycastHit raycastHit;
 
-            if(Physics.Raycast(ray, out raycastHit))
+            if (Physics.Raycast(ray, out raycastHit))
             {
-                if(raycastHit.collider.transform == player)
+                if (raycastHit.collider.transform == player)
                 {
                     gameEnding.CaughtPlayer();
                 }
