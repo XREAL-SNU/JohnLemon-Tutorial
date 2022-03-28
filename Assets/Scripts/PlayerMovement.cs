@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour {
     public Quaternion rotation;
     public bool walking;
 
+    public float stamina = 1f;
+    public bool noStamina = false;
+
     Animator animator;
     Rigidbody rigid;
     AudioSource m_AudioSource;
@@ -17,12 +20,14 @@ public class PlayerMovement : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
         m_AudioSource = GetComponent<AudioSource>();
         walking = false;
+        noStamina = false;
+        stamina = 1f;
     }
 
     void FixedUpdate() { //always called before OnAnimatorMove, unlike Update
         float hori = Input.GetAxis("Horizontal");
         float verti = Input.GetAxis("Vertical");
-        bool running = Input.GetKey(KeyCode.LeftShift);
+        bool running = Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !noStamina;
 
         movement.Set(hori, 0, verti);
         float mlen = movement.magnitude;
@@ -50,6 +55,15 @@ public class PlayerMovement : MonoBehaviour {
         else {
             m_AudioSource.Stop();
         }
+
+        if (running) {
+            stamina -= Time.deltaTime * 0.22f;
+            if (stamina <= 0f) noStamina = true;
+        }
+        else stamina += Time.deltaTime * (noStamina ? 0.12f : 0.15f);
+        if (stamina >= 1f) noStamina = false;
+
+        stamina = Mathf.Clamp(stamina, 0f, 1f);
     }
 
     void OnAnimatorMove() {
