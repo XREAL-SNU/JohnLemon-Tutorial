@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ebc61f951e4404bbf3a3cac1201b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 8867818831714310206}
   waypoints: []
 --- !u!195 &8867818831714310206
 NavMeshAgent:
