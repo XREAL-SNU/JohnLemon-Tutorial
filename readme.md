@@ -5,3 +5,4 @@
 <li>fork 후 git과의 연결 확인</li>
 <li>튜토리얼 "The Environment"까지 완료</li>
 <li>튜토리얼 "Audio"까지 완료</li>
+<li>튜토리얼 "Build"까지 전부 완료</li>
