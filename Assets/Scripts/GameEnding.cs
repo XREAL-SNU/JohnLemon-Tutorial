@@ -17,14 +17,7 @@ public class GameEnding : MonoBehaviour
     bool m_IsPlayerCaught;
     bool m_HasAudioPlayed;
     float m_Timer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(m_IsPlayerExit) {
@@ -32,6 +25,10 @@ public class GameEnding : MonoBehaviour
         } else if(m_IsPlayerCaught) {
             EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
         }
+    }
+    
+    public void CaughtPlayer() {
+        m_IsPlayerCaught = true;
     }
 
     void OnTriggerEnter(Collider other) {
@@ -56,7 +53,5 @@ public class GameEnding : MonoBehaviour
         }
     }
 
-    public void CaughtPlayer() {
-        m_IsPlayerCaught = true;
-    }
+   
 }

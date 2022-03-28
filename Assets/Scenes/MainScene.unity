@@ -5823,6 +5823,11 @@ PrefabInstance:
       propertyPath: gameEnding
       value: 
       objectReference: {fileID: 1804570195}
+    - target: {fileID: 9114852182614058269, guid: 85037878d3ce044449a1f0055aa4053b,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85037878d3ce044449a1f0055aa4053b, type: 3}
 --- !u!4 &4620121193071754972 stripped
