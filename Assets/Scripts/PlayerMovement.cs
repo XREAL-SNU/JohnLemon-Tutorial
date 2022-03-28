@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour {
 
     Animator animator;
     Rigidbody rigid;
-
+    AudioSource m_AudioSource;
     void Start() {
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
         walking = false;
     }
 
@@ -39,6 +40,16 @@ public class PlayerMovement : MonoBehaviour {
         //do the moving
         Vector3 df = Vector3.RotateTowards(transform.forward, movement, turnSpeed * Time.deltaTime, 0f);
         rotation = Quaternion.LookRotation(df);
+
+        if (walking) {
+            if (!m_AudioSource.isPlaying) {
+                m_AudioSource.Play();
+            }
+            m_AudioSource.pitch = running ? runSpeed : walkSpeed;
+        }
+        else {
+            m_AudioSource.Stop();
+        }
     }
 
     void OnAnimatorMove() {

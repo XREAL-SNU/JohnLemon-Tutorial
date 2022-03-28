@@ -15,6 +15,8 @@ public class Observer : MonoBehaviour {
     bool m_IsPlayerInRange;
     public bool playerInSight;
 
+    public AudioSource scream;
+
     void OnTriggerEnter(Collider other) {
         if (other.transform == player) {
             m_IsPlayerInRange = true;
@@ -45,6 +47,7 @@ public class Observer : MonoBehaviour {
                     //Debug.Log(r);
                     aggro += Time.deltaTime * aggroGain * r;
                     if (aggro >= 1f) {
+                        if(!aggroing) scream.Play();
                         aggroing = true;
                         AggroStart();
                         aggro = 1f;
