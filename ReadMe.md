@@ -2,7 +2,7 @@
 # John Lemons Huanted Jaunt 3D Beginner 
 
 ## Project Introduction 
-
+* [Unity Learn / John Lemon's Haunted Jaunt 3D Begineer Tutorial Link](https://learn.unity.com/project/jon-remonyi-gongpo-ceheom-john-lemon-s-haunted-jaunt-3d-cogeubjayong)
 * 3D beginner Unity Game development tutorial 
     * Learn using Unity Editor  
     * Learn basics of Unity Game development 
