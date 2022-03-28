@@ -2,6 +2,7 @@
 # John Lemons Huanted Jaunt 3D Beginner 
 
 ## Project Introduction 
+
 * 3D beginner Unity Game development tutorial 
     * Learn using Unity Editor  
     * Learn basics of Unity Game development 
@@ -9,10 +10,12 @@
     * Develop with custom code - using C# script file, Visual Studio Code paltform
     * Improve player experience
 * Development Evnironemnt 
-    * Unity Editor 
+    * Unity Editor: Unity 2020.3.23f1 (downloaded directly from GitHub)
     * Unity Hub 
     * Visual Sutdio Code
     * GitHub Desktop 
+* Development Assets
+    * `3D Beginner: Tutorial Resources` downloaded from Editor/AssetStores (refer to tutorial 1-3.)
 
 ## Tutorial for beginners
 1. Get started with John Lemon's Huanted Jaunt
