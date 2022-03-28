@@ -6,9 +6,10 @@ using UnityEngine.AI;
 
 public class WaypointPatrol : MonoBehaviour {
     public NavMeshAgent navMeshAgent;
+    public Animator animator;
     public Transform[] waypoints;
 
-    public const float speed = 0.9f, aggroSpeed = 1.45f;
+    public const float speed = 1.2f, aggroSpeed = 2f;
 
     //public static Vector3? globalTarget = null;
     public Vector3? target = null;
@@ -21,20 +22,25 @@ public class WaypointPatrol : MonoBehaviour {
     int m_CurrentWaypointIndex;
 
     void Start() {
+        animator = GetComponent<Animator>();
+        animator.ResetTrigger("shout");
         navMeshAgent.SetDestination(waypoints[0].position);
     }
 
     void Update() {
         if (observer.aggroing) {
-            target = player.transform.position;
+            if(observer.playerInSight)target = player.transform.position;
             navMeshAgent.speed = aggroSpeed;
         }
-        else navMeshAgent.speed = speed;
+        else {
+            navMeshAgent.speed = speed;
+            animator.ResetTrigger("shout");
+        }
 
         //aggro
         if(target != null) {
             if (target != navMeshAgent.destination) navMeshAgent.SetDestination((Vector3)target);
-            if (navMeshAgent.remainingDistance < 0.1f) {
+            else if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance / 2f) {
                 target = null;
             }
         }
@@ -46,7 +52,9 @@ public class WaypointPatrol : MonoBehaviour {
     }
 
     public void AggroFull() {
-        //todo shout
+        //todo shout sound
+        animator.SetTrigger("shout");
+        //Debug.Log("shout");
     }
 
     public static void EachPatrol(Action<WaypointPatrol> act) {

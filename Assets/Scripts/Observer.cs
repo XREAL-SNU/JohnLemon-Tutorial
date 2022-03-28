@@ -13,6 +13,7 @@ public class Observer : MonoBehaviour {
     public bool aggroing = false;
 
     bool m_IsPlayerInRange;
+    public bool playerInSight;
 
     void OnTriggerEnter(Collider other) {
         if (other.transform == player) {
@@ -32,6 +33,7 @@ public class Observer : MonoBehaviour {
     }
 
     void Update() {
+        playerInSight = false;
         if (m_IsPlayerInRange) {
             Vector3 direction = player.position - transform.position + Vector3.up;
             Ray ray = new Ray(transform.position, direction);
@@ -40,18 +42,27 @@ public class Observer : MonoBehaviour {
             if (Physics.Raycast(ray, out raycastHit)) {
                 if (raycastHit.collider.transform == player) {
                     float r = Mathf.Clamp01(1f - raycastHit.distance / 5f) + 0.01f;
-                    Debug.Log(r);
+                    //Debug.Log(r);
                     aggro += Time.deltaTime * aggroGain * r;
                     if (aggro >= 1f) {
                         aggroing = true;
                         AggroStart();
                         aggro = 1f;
                     }
+
+                    playerInSight = true;
                 }
             }
         }
         else {
-            if(aggro > 0f) aggro -= Time.deltaTime * aggroWear;
+            if (aggroing) {
+                Vector3 direction = player.position - transform.position + Vector3.up;
+                Ray ray = new Ray(transform.position, direction);
+                RaycastHit raycastHit;
+                playerInSight = Physics.Raycast(ray, out raycastHit) && raycastHit.collider.transform == player;
+            }
+
+            if (aggro > 0f) aggro -= Time.deltaTime * aggroWear * (playerInSight ? 0.1f : 1f);
             if (aggro <= 0f && aggroing) aggroing = false;
         }
 
@@ -65,7 +76,7 @@ public class Observer : MonoBehaviour {
         callCooldown = 5f;
         WaypointPatrol.EachPatrol(p => p.target = player.transform.position);
 
-        WaypointPatrol p = GetComponent<WaypointPatrol>();
+        WaypointPatrol p = transform.parent.GetComponent<WaypointPatrol>();
         if (p != null) p.AggroFull();
     }
 }
