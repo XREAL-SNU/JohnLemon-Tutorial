@@ -3,3 +3,4 @@
 
 <h3>git 기록</h3>
 <li>fork 후 git과의 연결 확인</li>
+<li>튜토리얼 "The Environment"까지 완료</li>
